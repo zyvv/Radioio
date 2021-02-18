@@ -79,7 +79,7 @@ struct PlayingPanel: View {
                     Button(action: {
                        favourite = playerControl.favouriteRadio(radio: playerControl.playingRadio)
                     }) {
-                        Text((favourite ? "已关注": "关注"))
+                        Text((favourite ? "Added": "Add"))
                             .font(.subheadline)
                             .foregroundColor(.white)
                             .padding(.horizontal, 15)
@@ -90,7 +90,7 @@ struct PlayingPanel: View {
                                         ZStack {
                                             RoundedRectangle(cornerRadius: .infinity)
                                                 .fill(Color.white)
-                                            Text("已关注")
+                                            Text("Added")
                                                 .font(.subheadline)
                                                 .foregroundColor(.darkBrown)
                                         }
@@ -122,7 +122,7 @@ struct RecentPlayView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("最近播放")
+            Text("Recently Played")
                 .font(.footnote)
                 .foregroundColor(.gray)
                 .padding(.leading, 8)
@@ -153,7 +153,7 @@ struct RecentPlayView: View {
         VStack(spacing: 4) {
             Image(systemName: "radio")
                 .font(.system(size: 35))
-            Text("所有电台")
+            Text("Library")
                 .font(.subheadline)
         }
         .foregroundColor(.white)

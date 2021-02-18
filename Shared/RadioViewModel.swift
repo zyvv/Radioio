@@ -11,8 +11,8 @@ import CoreData
 
 class RadioViewModel: ObservableObject {
     private let context: NSManagedObjectContext = PersistentContainer.context
-    private let favouritGroupName = "我关注的"
-    private let recentPlayGroupName = "最近播放"
+    private let favouritGroupName = "Recently Added"
+    private let recentPlayGroupName = "Recently Played"
     
     private var radios: [Radio]
     private var regions: [String]

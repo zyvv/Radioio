@@ -59,7 +59,7 @@ struct PlayingMessageNavigationBar: View {
                     Button(action: {
                         closeSelf.toggle()
                     }, label: {
-                        Text("关闭")
+                        Text("Close")
                             .foregroundColor(.white)
                             .font(.body)
                     })
@@ -74,7 +74,7 @@ struct PlayingMessageNavigationBar: View {
     var titleView: some View {
         GeometryReader { geometry in
             VStack {
-                Text("电台库")
+                Text("Library")
                     .foregroundColor(.white)
                     .bold()
                     .font(.title2)
@@ -109,7 +109,7 @@ struct RadioGroup: View {
     var region: String
     
     var body: some View {
-        DisclosureGroup(region) {
+        DisclosureGroup(LocalizedStringKey(region)) {
             if radioViewModel.haveRadio(inRegion: region) {
                 LazyVGrid(columns: columns, spacing: 8) {
                     ForEach(radioViewModel.radios(inRegion: region)!, id: \.id) { radio in

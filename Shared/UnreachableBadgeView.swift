@@ -14,7 +14,7 @@ struct UnreachableBadgeView: View {
             if unreachable {
                 HStack {
                     Spacer()
-                    Text("没有连接到网络")
+                    Text("Not connected to the network.")
                         .font(.caption2)
                         .foregroundColor(.gray)
                     Spacer()

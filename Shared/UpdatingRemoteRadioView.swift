@@ -20,12 +20,12 @@ struct UpdatingRemoteRadioView: View {
                 .allowsHitTesting(false)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 30) {
-                Text("\(updater.updateError?.localizedDescription ?? (updater.needUpdate ? "正在下载数据..." : ""))")
+                Text("\(updater.updateError?.localizedDescription ?? (updater.needUpdate ? "Downloading data..." : ""))")
                     .multilineTextAlignment(.center)
                 Button(action: {
                     updater.update()
                 }, label: {
-                    Text("重试")
+                    Text("Retry")
                         .font(.body)
                         .foregroundColor(.white)
                         .padding(.horizontal, 15)
