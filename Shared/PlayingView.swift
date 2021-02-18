@@ -150,7 +150,7 @@ struct RecentPlayView: View {
     }
     
     var allRadiosCell: some View {
-        VStack {
+        VStack(spacing: 4) {
             Image(systemName: "radio")
                 .font(.system(size: 35))
             Text("所有电台")

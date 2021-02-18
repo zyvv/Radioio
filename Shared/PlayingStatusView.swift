@@ -23,7 +23,6 @@ struct PlayingStatusView: View {
                             .font(.system(size: geometry.size.width))
                             .opacity(viewOpacity)
                     }
-                    
                 case .playing:
                     HistogramView()
             }
@@ -33,6 +32,7 @@ struct PlayingStatusView: View {
 
 struct HistogramView: View {
     @State var heightRatios: (CGFloat, CGFloat, CGFloat) = (0.25, 0.5, 0.7)
+    
     var body: some View {
         GeometryReader { geometry in
             HStack(alignment: .bottom, spacing: 0) {
@@ -53,9 +53,10 @@ struct HistogramView: View {
             }
             .opacity(viewOpacity)
             .aspectRatio(1, contentMode: .fit)
-            .animation(Animation.easeInOut(duration: 0.55).repeatForever(autoreverses: true))
             .onAppear {
-                heightRatios = (0.65, 0.2, 0.35)
+                withAnimation(Animation.easeInOut(duration: 0.55).repeatForever(autoreverses: true)) {
+                    heightRatios = (0.65, 0.2, 0.35)
+                }
             }
         }
     }
@@ -94,14 +95,14 @@ struct LoadingView: View {
                         .rotationEffect(.degrees(Double(i) / Double(lineCount)) * 360.0, anchor: .center)
                 }
             }
+            .rotationEffect(.degrees(rotating ? 360 : 0), anchor: .center)
             .opacity(viewOpacity)
             .aspectRatio(1, contentMode: .fit)
-            .rotationEffect(.degrees(rotating ? 360 : 0), anchor: .center)
-            .animation(Animation.linear(duration: 2.5).repeatForever(autoreverses: false))
             .onAppear {
-                rotating = true
+                withAnimation(Animation.linear(duration: 2.5).repeatForever(autoreverses: false)) {
+                    rotating = true
+                }
             }
-            
         }
     }
 }
@@ -111,16 +112,14 @@ struct PlayingStatusView_Previews: PreviewProvider {
         VStack {
             HStack(spacing: 2) {
                 PlayingStatusView(playingStatus: Binding.constant(PlayerControl.PlayerStatus.loading))
-                    .frame(width: 30, height: 30)
-                Text("缓冲中")
+                Text("Loading")
             }
             .frame(width: 200, height: 50)
             .background(Color.yellow)
             
             HStack(spacing: 2) {
                 PlayingStatusView(playingStatus: Binding.constant(PlayerControl.PlayerStatus.playing))
-                    .frame(width: 30, height: 30)
-                Text("正在播放")
+                Text("Playing")
             }
             .frame(width: 200, height: 50)
             .background(Color.orange)

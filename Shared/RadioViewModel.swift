@@ -93,6 +93,15 @@ class RadioViewModel: ObservableObject {
         return radio
     }
     
+    // fetch recently play radios for widget
+    static func getRecentlyPlayRadios() -> [Radio] {
+        let request = NSFetchRequest<Radio>.init(entityName: "Radio")
+        request.predicate = NSPredicate(format: "lastPlayTime < %@", Date() as NSDate)
+        request.sortDescriptors = [NSSortDescriptor(key: "lastPlayTime", ascending: false)]
+        request.fetchLimit = 4
+        return (try? PersistentContainer.context.fetch(request)) ?? []
+    }
+    
     private func getRecentPlayRadios() -> [Radio] {
         let request = NSFetchRequest<Radio>.init(entityName: "Radio")
         request.predicate = NSPredicate(format: "lastPlayTime < %@", Date() as NSDate)

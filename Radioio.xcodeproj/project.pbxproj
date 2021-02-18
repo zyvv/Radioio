@@ -45,6 +45,19 @@
 		97F1F6F524C48FE6000D4D30 /* ReachabilityStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F1F6F324C48FE6000D4D30 /* ReachabilityStore.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		979B9053253EA844000A7DDB /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		973B0B0324C49A0D00B1CA05 /* UnreachableBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreachableBadgeView.swift; sourceTree = "<group>"; };
 		975C792D24BEF38400DE48E2 /* RadioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewModel.swift; sourceTree = "<group>"; };
@@ -53,6 +66,8 @@
 		975C793924BF465100DE48E2 /* RadioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioCell.swift; sourceTree = "<group>"; };
 		97673EC724C1A99D00EE1ADF /* PlayingStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingStatusView.swift; sourceTree = "<group>"; };
 		978FC7B924BDEF8F00C3F499 /* RadioListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioListView.swift; sourceTree = "<group>"; };
+		979B9046253EA842000A7DDB /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		979B9048253EA842000A7DDB /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		97C4FC2A24C8959A00EEDA7E /* OnoffButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnoffButton.swift; sourceTree = "<group>"; };
 		97C5A79424BDC71A00F8DB3F /* RadioioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioioApp.swift; sourceTree = "<group>"; };
 		97C5A79524BDC71A00F8DB3F /* PlayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingView.swift; sourceTree = "<group>"; };
@@ -154,6 +169,8 @@
 		97CF616024C574C400F103B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				979B9046253EA842000A7DDB /* WidgetKit.framework */,
+				979B9048253EA842000A7DDB /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -168,6 +185,7 @@
 				97C5A79724BDC71E00F8DB3F /* Sources */,
 				97C5A79824BDC71E00F8DB3F /* Frameworks */,
 				97C5A79924BDC71E00F8DB3F /* Resources */,
+				979B9053253EA844000A7DDB /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -207,8 +225,8 @@
 		97C5A78F24BDC71A00F8DB3F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1200;
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1220;
 				TargetAttributes = {
 					97C5A79A24BDC71E00F8DB3F = {
 						CreatedOnToolsVersion = 12.0;
@@ -423,6 +441,7 @@
 		97C5A7B024BDC71E00F8DB3F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -434,7 +453,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyangwei.xyz.Radioio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyangwei.Radioio;
 				PRODUCT_NAME = Radioio;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -445,6 +464,7 @@
 		97C5A7B124BDC71E00F8DB3F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -456,7 +476,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyangwei.xyz.Radioio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyangwei.Radioio;
 				PRODUCT_NAME = Radioio;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -471,8 +491,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = VN2D9WHJ93;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -493,8 +516,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = VN2D9WHJ93;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
