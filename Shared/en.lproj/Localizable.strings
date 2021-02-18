@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  Radioio
+
+  Created by 张洋威 on 2021/2/18.
+  
+*/
+
+"Close" = "Close";
+"Retry" = "Retry";
+"Library" = "Library";
+"Recently Played" = "Recently Played";
+"Recently Added" = "Recently Added";
+"Add" = "Add";
+"Added" = "Added";
+"Not connected to the network." = "Not connected to the network.";
+"Downloading data..." = "Downloading data...";
+

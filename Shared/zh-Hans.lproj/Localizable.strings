@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Radioio
+
+  Created by 张洋威 on 2021/2/18.
+  
+*/
+
+"Close" = "关闭";
+"Retry" = "重试";
+"Library" = "电台库";
+"Recently Played" = "最近播放";
+"Recently Added" = "我关注的";
+"Add" = "关注";
+"Added" = "已关注";
+"Not connected to the network." = "没有连接到网络。";
+"Downloading data..." = "正在下载数据...";
