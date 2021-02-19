@@ -25,7 +25,7 @@ class PlayerControl: ObservableObject {
     
     @Published private(set) var unreachable: Bool = false
     
-    private var player: AVPlayer!
+    private var player: AVAudioPlayer!
     private var playerStatusCancellable: AnyCancellable?
 
     private var reachabiltyStore: ReachabilityStore!
@@ -47,29 +47,38 @@ class PlayerControl: ObservableObject {
         #if os(iOS)
         try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
         #endif
-        player = AVPlayer(playerItem: AVPlayerItem(url: playingRadio.url))
+//        do {
+//            let data = try Data(contentsOf: playingRadio.url)
+//            player = try AVAudioPlayer(data: data)
+////            player = try AVAudioPlayer(contentsOf: playingRadio.url)
+//        } catch {
+//            print(error.localizedDescription)
+//        }
+        
+//        player = AVPlayer(playerItem: AVPlayerItem(url: playingRadio.url))
         setupRemoteTransportControls()
     }
     
     private func setupRemoteTransportControls() {
         let commandCenter = MPRemoteCommandCenter.shared()
-        commandCenter.playCommand.addTarget { [unowned self] _ in
-            if self.player.rate == 0.0 {
-                self.play()
+        commandCenter.playCommand.isEnabled = true
+        commandCenter.pauseCommand.isEnabled = true
+        commandCenter.playCommand.addTarget { [weak self] _ in
+            if self?.player.isPlaying == false {
+                self?.player.play()
                 return .success
             }
             return .commandFailed
         }
 
-        commandCenter.pauseCommand.addTarget { [unowned self] _ in
-            if self.player.rate == 1.0 {
-                self.pause()
+        commandCenter.pauseCommand.addTarget {[weak self] _ in
+            if self?.player.isPlaying == true {
+                self?.player.pause()
                 return .success
             }
             return .commandFailed
         }
     }
-
     
     private func updateNowPlaying(isPause: Bool) {
         var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [String : Any]()
@@ -79,23 +88,31 @@ class PlayerControl: ObservableObject {
     }
     
     private func replacePlayerItem(radio: Radio) {
-        if radio.id != playingRadio.id {
-            playingRadio = RadioViewModel.getRadioOnDisk(radio: radio)
-            playerStatusCancellable?.cancel()
-            playerStatusCancellable = nil
-            player = AVPlayer(playerItem: AVPlayerItem(url: radio.url))
-        }
+        if playingRadio.id == radio.id { return }
+        playingRadio = RadioViewModel.getRadioOnDisk(radio: radio)
+        playerStatusCancellable?.cancel()
+        playerStatusCancellable = nil
+        player.pause()
+        try? player = AVAudioPlayer(contentsOf: radio.url)
+//        player = AVPlayer(playerItem: AVPlayerItem(url: radio.url))
         if playerStatusCancellable == nil {
             playerStatusCancellable = Publishers
                 .CombineLatest(
-                    player.publisher(for: \.timeControlStatus, options: [.initial, .new]),
+                    player.publisher(for: \.isPlaying, options: [.initial, .new]),
                     $playingRadio
                 )
                 .removeDuplicates { $0.0 == $1.0 && $0.1 == $1.1 }
                 .sink { [unowned self] playerStatus, radio in
-                    self.playerStatus = PlayerStatus(rawValue: playerStatus.rawValue)!
+                    print("status:\(playerStatus), radio:\(radio.name)")
+                    if playerStatus {
+                        self.playerStatus = .playing
+//                        self.playerStatus = PlayerStatus(rawValue: playerStatus.rawValue)!
+                    } else {
+                        self.playerStatus = .pause
+                    }
+//                    self.playerStatus = PlayerStatus(rawValue: playerStatus.rawValue)!
                     self.updateNowPlaying(isPause: self.playerStatus == .pause)
-                    if playerStatus == .playing {
+                    if playerStatus {
                         self.updateRadioLastPlayTime(radio: radio)
                     }
                 }
@@ -126,20 +143,18 @@ class PlayerControl: ObservableObject {
     }
     
     func toggle() {
-        playerStatus == .pause ? play() : pause()
+        if player.isPlaying == true {
+            player.pause()
+        } else {
+            player.play()
+        }
+//        player.isPlaying == true ? player.pause() : player.play()
+//        playerStatus == .pause ? play() : pause()
     }
 
     func play(radio: Radio) {
         replacePlayerItem(radio: radio)
-        play()
-    }
-
-    func play() {
-        player.play()
-    }
-
-    func pause() {
-        player.pause()
+//        play()
     }
     
     func radioStatus(radio: Radio) -> PlayerStatus {

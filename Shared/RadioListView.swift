@@ -66,7 +66,6 @@ struct PlayingMessageNavigationBar: View {
                     Spacer()
                 }
                 .padding()
-                
             }
         }
     }
