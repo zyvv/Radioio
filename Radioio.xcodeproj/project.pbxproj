@@ -45,7 +45,38 @@
 		97F1F6F224C48FC9000D4D30 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 97F1F6F124C48FC9000D4D30 /* Reachability */; };
 		97F1F6F424C48FE6000D4D30 /* ReachabilityStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F1F6F324C48FE6000D4D30 /* ReachabilityStore.swift */; };
 		97F1F6F524C48FE6000D4D30 /* ReachabilityStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F1F6F324C48FE6000D4D30 /* ReachabilityStore.swift */; };
+		97F227F025E2A3EC00B5A2B1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F227EF25E2A3EC00B5A2B1 /* MainView.swift */; };
+		97FE646925E3D26500434012 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97FE646825E3D26500434012 /* Assets.xcassets */; };
+		97FE647025E3D26600434012 /* Radioio WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 97FE646F25E3D26600434012 /* Radioio WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		97FE647925E3D26600434012 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FE647825E3D26600434012 /* ComplicationController.swift */; };
+		97FE647B25E3D26900434012 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97FE647A25E3D26900434012 /* Assets.xcassets */; };
+		97FE647E25E3D26900434012 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97FE647D25E3D26900434012 /* Preview Assets.xcassets */; };
+		97FE649125E3D2E800434012 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97FE649025E3D2E800434012 /* Media.xcassets */; };
+		97FE649225E3D2E800434012 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97FE649025E3D2E800434012 /* Media.xcassets */; };
+		97FE64A625E3D88700434012 /* RadioTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FE649825E3D88500434012 /* RadioTableView.swift */; };
+		97FE64A725E3D88700434012 /* WatchMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FE64A525E3D88600434012 /* WatchMainView.swift */; };
+		97FE64AD25E3D8BB00434012 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97FE649025E3D2E800434012 /* Media.xcassets */; };
+		97FE64B325E3D8E300434012 /* RadioioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C5A79424BDC71A00F8DB3F /* RadioioApp.swift */; };
+		97FE64B425E3D8E300434012 /* PlayerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975C793624BF0D9F00DE48E2 /* PlayerControl.swift */; };
+		97FE64B525E3D8E300434012 /* RadioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975C792D24BEF38400DE48E2 /* RadioViewModel.swift */; };
+		97FE64B625E3D8E300434012 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CF618D24C5D55100F103B8 /* Radio.swift */; };
+		97FE64B725E3D8E300434012 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CF618624C5B4FD00F103B8 /* PersistentContainer.swift */; };
+		97FE64B825E3D8E300434012 /* RadioioExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975C793024BF06E700DE48E2 /* RadioioExtensions.swift */; };
+		97FE64BA25E3D8E300434012 /* RemoteRadioUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CF618324C5B3C500F103B8 /* RemoteRadioUpdater.swift */; };
+		97FE64BB25E3D8E300434012 /* UpdatingRemoteRadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CF619024C5E5BA00F103B8 /* UpdatingRemoteRadioView.swift */; };
+		97FE64BC25E3D8E300434012 /* Radioio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 97CF618924C5B62E00F103B8 /* Radioio.xcdatamodeld */; };
+		97FE64BD25E3D8E300434012 /* Localizable.strings in Sources */ = {isa = PBXBuildFile; fileRef = 9773C24F25DEB21200B6DC83 /* Localizable.strings */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		97FE647125E3D26600434012 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97C5A78F24BDC71A00F8DB3F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97FE646E25E3D26600434012;
+			remoteInfo = "Radioio WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		979B9053253EA844000A7DDB /* Embed App Extensions */ = {
@@ -54,6 +85,17 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97FE648325E3D26900434012 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				97FE647025E3D26600434012 /* Radioio WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,6 +131,18 @@
 		97CF618D24C5D55100F103B8 /* Radio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radio.swift; sourceTree = "<group>"; };
 		97CF619024C5E5BA00F103B8 /* UpdatingRemoteRadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatingRemoteRadioView.swift; sourceTree = "<group>"; };
 		97F1F6F324C48FE6000D4D30 /* ReachabilityStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityStore.swift; sourceTree = "<group>"; };
+		97F227EF25E2A3EC00B5A2B1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		97FE646325E3D26200434012 /* Radioio WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Radioio WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		97FE646825E3D26500434012 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		97FE646A25E3D26500434012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97FE646F25E3D26600434012 /* Radioio WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Radioio WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		97FE647825E3D26600434012 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		97FE647A25E3D26900434012 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		97FE647D25E3D26900434012 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		97FE647F25E3D26900434012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97FE649025E3D2E800434012 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		97FE649825E3D88500434012 /* RadioTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioTableView.swift; sourceTree = "<group>"; };
+		97FE64A525E3D88600434012 /* WatchMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchMainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +162,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		97FE646C25E3D26600434012 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -117,6 +178,8 @@
 				97C5A79324BDC71A00F8DB3F /* Shared */,
 				97C5A79D24BDC71E00F8DB3F /* iOS */,
 				97C5A7A424BDC71E00F8DB3F /* macOS */,
+				97FE646725E3D26200434012 /* Radioio WatchKit App */,
+				97FE647325E3D26600434012 /* Radioio WatchKit Extension */,
 				97C5A79C24BDC71E00F8DB3F /* Products */,
 				97CF616024C574C400F103B8 /* Frameworks */,
 			);
@@ -126,9 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				97C5A79424BDC71A00F8DB3F /* RadioioApp.swift */,
-				97C5A79524BDC71A00F8DB3F /* PlayingView.swift */,
-				978FC7B924BDEF8F00C3F499 /* RadioListView.swift */,
-				975C793924BF465100DE48E2 /* RadioCell.swift */,
 				975C793624BF0D9F00DE48E2 /* PlayerControl.swift */,
 				975C792D24BEF38400DE48E2 /* RadioViewModel.swift */,
 				97CF618D24C5D55100F103B8 /* Radio.swift */,
@@ -136,13 +196,14 @@
 				975C793024BF06E700DE48E2 /* RadioioExtensions.swift */,
 				97673EC724C1A99D00EE1ADF /* PlayingStatusView.swift */,
 				97F1F6F324C48FE6000D4D30 /* ReachabilityStore.swift */,
-				973B0B0324C49A0D00B1CA05 /* UnreachableBadgeView.swift */,
 				97CF618324C5B3C500F103B8 /* RemoteRadioUpdater.swift */,
+				975C793924BF465100DE48E2 /* RadioCell.swift */,
 				97CF619024C5E5BA00F103B8 /* UpdatingRemoteRadioView.swift */,
 				97CF618924C5B62E00F103B8 /* Radioio.xcdatamodeld */,
 				97C4FC2A24C8959A00EEDA7E /* OnoffButton.swift */,
 				9773C24F25DEB21200B6DC83 /* Localizable.strings */,
 				97C5A79624BDC71E00F8DB3F /* Assets.xcassets */,
+				97FE649025E3D2E800434012 /* Media.xcassets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -152,6 +213,8 @@
 			children = (
 				97C5A79B24BDC71E00F8DB3F /* Radioio.app */,
 				97C5A7A324BDC71E00F8DB3F /* Radioio.app */,
+				97FE646325E3D26200434012 /* Radioio WatchKit App.app */,
+				97FE646F25E3D26600434012 /* Radioio WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,6 +222,9 @@
 		97C5A79D24BDC71E00F8DB3F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				97C5A79524BDC71A00F8DB3F /* PlayingView.swift */,
+				978FC7B924BDEF8F00C3F499 /* RadioListView.swift */,
+				973B0B0324C49A0D00B1CA05 /* UnreachableBadgeView.swift */,
 				97C5A79E24BDC71E00F8DB3F /* Info.plist */,
 			);
 			path = iOS;
@@ -167,6 +233,7 @@
 		97C5A7A424BDC71E00F8DB3F /* macOS */ = {
 			isa = PBXGroup;
 			children = (
+				97F227EF25E2A3EC00B5A2B1 /* MainView.swift */,
 				97C5A7A524BDC71E00F8DB3F /* Info.plist */,
 				97C5A7A624BDC71E00F8DB3F /* macOS.entitlements */,
 			);
@@ -180,6 +247,36 @@
 				979B9048253EA842000A7DDB /* SwiftUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		97FE646725E3D26200434012 /* Radioio WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				97FE646825E3D26500434012 /* Assets.xcassets */,
+				97FE646A25E3D26500434012 /* Info.plist */,
+			);
+			path = "Radioio WatchKit App";
+			sourceTree = "<group>";
+		};
+		97FE647325E3D26600434012 /* Radioio WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				97FE649825E3D88500434012 /* RadioTableView.swift */,
+				97FE64A525E3D88600434012 /* WatchMainView.swift */,
+				97FE647825E3D26600434012 /* ComplicationController.swift */,
+				97FE647A25E3D26900434012 /* Assets.xcassets */,
+				97FE647F25E3D26900434012 /* Info.plist */,
+				97FE647C25E3D26900434012 /* Preview Content */,
+			);
+			path = "Radioio WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		97FE647C25E3D26900434012 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				97FE647D25E3D26900434012 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,13 +323,47 @@
 			productReference = 97C5A7A324BDC71E00F8DB3F /* Radioio.app */;
 			productType = "com.apple.product-type.application";
 		};
+		97FE646225E3D26200434012 /* Radioio WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97FE648425E3D26900434012 /* Build configuration list for PBXNativeTarget "Radioio WatchKit App" */;
+			buildPhases = (
+				97FE646125E3D26200434012 /* Resources */,
+				97FE648325E3D26900434012 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				97FE647225E3D26600434012 /* PBXTargetDependency */,
+			);
+			name = "Radioio WatchKit App";
+			productName = "Radioio WatchKit App";
+			productReference = 97FE646325E3D26200434012 /* Radioio WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		97FE646E25E3D26600434012 /* Radioio WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97FE648025E3D26900434012 /* Build configuration list for PBXNativeTarget "Radioio WatchKit Extension" */;
+			buildPhases = (
+				97FE646B25E3D26600434012 /* Sources */,
+				97FE646C25E3D26600434012 /* Frameworks */,
+				97FE646D25E3D26600434012 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Radioio WatchKit Extension";
+			productName = "Radioio WatchKit Extension";
+			productReference = 97FE646F25E3D26600434012 /* Radioio WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		97C5A78F24BDC71A00F8DB3F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1220;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
 					97C5A79A24BDC71E00F8DB3F = {
@@ -240,6 +371,12 @@
 					};
 					97C5A7A224BDC71E00F8DB3F = {
 						CreatedOnToolsVersion = 12.0;
+					};
+					97FE646225E3D26200434012 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					97FE646E25E3D26600434012 = {
+						CreatedOnToolsVersion = 12.4;
 					};
 				};
 			};
@@ -264,6 +401,8 @@
 			targets = (
 				97C5A79A24BDC71E00F8DB3F /* iOS */,
 				97C5A7A224BDC71E00F8DB3F /* macOS */,
+				97FE646225E3D26200434012 /* Radioio WatchKit App */,
+				97FE646E25E3D26600434012 /* Radioio WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -274,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97C5A7AB24BDC71E00F8DB3F /* Assets.xcassets in Resources */,
+				97FE649125E3D2E800434012 /* Media.xcassets in Resources */,
 				9773C24C25DEB21200B6DC83 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,7 +423,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				97C5A7AC24BDC71E00F8DB3F /* Assets.xcassets in Resources */,
+				97FE649225E3D2E800434012 /* Media.xcassets in Resources */,
 				9773C24D25DEB21200B6DC83 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97FE646125E3D26200434012 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97FE646925E3D26500434012 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97FE646D25E3D26600434012 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97FE64AD25E3D8BB00434012 /* Media.xcassets in Resources */,
+				97FE647E25E3D26900434012 /* Preview Assets.xcassets in Resources */,
+				97FE647B25E3D26900434012 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +487,7 @@
 				975C792F24BEF38400DE48E2 /* RadioViewModel.swift in Sources */,
 				97CF618F24C5D55100F103B8 /* Radio.swift in Sources */,
 				978FC7BB24BDEF8F00C3F499 /* RadioListView.swift in Sources */,
+				97F227F025E2A3EC00B5A2B1 /* MainView.swift in Sources */,
 				97673EC924C1A99D00EE1ADF /* PlayingStatusView.swift in Sources */,
 				975C793224BF06E700DE48E2 /* RadioioExtensions.swift in Sources */,
 				97F1F6F524C48FE6000D4D30 /* ReachabilityStore.swift in Sources */,
@@ -336,7 +496,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		97FE646B25E3D26600434012 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97FE64B325E3D8E300434012 /* RadioioApp.swift in Sources */,
+				97FE64B425E3D8E300434012 /* PlayerControl.swift in Sources */,
+				97FE64B525E3D8E300434012 /* RadioViewModel.swift in Sources */,
+				97FE64B625E3D8E300434012 /* Radio.swift in Sources */,
+				97FE64B725E3D8E300434012 /* PersistentContainer.swift in Sources */,
+				97FE64B825E3D8E300434012 /* RadioioExtensions.swift in Sources */,
+				97FE64BA25E3D8E300434012 /* RemoteRadioUpdater.swift in Sources */,
+				97FE64BB25E3D8E300434012 /* UpdatingRemoteRadioView.swift in Sources */,
+				97FE64BC25E3D8E300434012 /* Radioio.xcdatamodeld in Sources */,
+				97FE64BD25E3D8E300434012 /* Localizable.strings in Sources */,
+				97FE64A725E3D88700434012 /* WatchMainView.swift in Sources */,
+				97FE64A625E3D88700434012 /* RadioTableView.swift in Sources */,
+				97FE647925E3D26600434012 /* ComplicationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		97FE647225E3D26600434012 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 97FE646E25E3D26600434012 /* Radioio WatchKit Extension */;
+			targetProxy = 97FE647125E3D26600434012 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9773C24F25DEB21200B6DC83 /* Localizable.strings */ = {
@@ -473,7 +661,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = VN2D9WHJ93;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -497,7 +685,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = VN2D9WHJ93;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -521,7 +709,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = VN2D9WHJ93;
@@ -532,8 +720,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.16;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyangwei.xyz.Radioio;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyangwei.Radioio;
 				PRODUCT_NAME = Radioio;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -546,7 +734,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = VN2D9WHJ93;
@@ -557,11 +745,105 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.16;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyangwei.xyz.Radioio;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyangwei.Radioio;
 				PRODUCT_NAME = Radioio;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		97FE648125E3D26900434012 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_ASSET_PATHS = "\"Radioio WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = VN2D9WHJ93;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Radioio WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyangwei.Radioio.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.2;
+			};
+			name = Debug;
+		};
+		97FE648225E3D26900434012 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_ASSET_PATHS = "\"Radioio WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = VN2D9WHJ93;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Radioio WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyangwei.Radioio.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 7.2;
+			};
+			name = Release;
+		};
+		97FE648525E3D26900434012 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = VN2D9WHJ93;
+				IBSC_MODULE = Radioio_WatchKit_Extension;
+				INFOPLIST_FILE = "Radioio WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyangwei.Radioio.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.2;
+			};
+			name = Debug;
+		};
+		97FE648625E3D26900434012 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = VN2D9WHJ93;
+				IBSC_MODULE = Radioio_WatchKit_Extension;
+				INFOPLIST_FILE = "Radioio WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyangwei.Radioio.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 7.2;
 			};
 			name = Release;
 		};
@@ -591,6 +873,24 @@
 			buildConfigurations = (
 				97C5A7B324BDC71E00F8DB3F /* Debug */,
 				97C5A7B424BDC71E00F8DB3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97FE648025E3D26900434012 /* Build configuration list for PBXNativeTarget "Radioio WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97FE648125E3D26900434012 /* Debug */,
+				97FE648225E3D26900434012 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97FE648425E3D26900434012 /* Build configuration list for PBXNativeTarget "Radioio WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97FE648525E3D26900434012 /* Debug */,
+				97FE648625E3D26900434012 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

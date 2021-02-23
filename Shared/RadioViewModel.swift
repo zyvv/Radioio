@@ -18,12 +18,15 @@ class RadioViewModel: ObservableObject {
     private var regions: [String]
     private var regionRadios: [String: [Radio]]
     
-    private var favouriteRadios: [Radio]?
+    @Published var favouriteRadios: [Radio] = []
     
     @Published var recentPlayRadios: [Radio] = []
         
     let shouldFetchRecentPlayRadio = CurrentValueSubject<Bool, Never>(false)
     private var shouldFetchRecentPlayRadioCancellable: AnyCancellable?
+    
+    let shouldFetchFavouriteRadio = CurrentValueSubject<Bool, Never>(false)
+    private var shouldFetchFavouriteRadioCancellable: AnyCancellable?
         
     init() {
         radios = RadioViewModel.getAllRaios()
@@ -43,6 +46,12 @@ class RadioViewModel: ObservableObject {
                 self.recentPlayRadios = self.getRecentPlayRadios()
             }
         }
+        shouldFetchFavouriteRadio.send(true)
+        shouldFetchFavouriteRadioCancellable = shouldFetchFavouriteRadio.sink { [unowned self] in
+            if $0 == true {
+                self.favouriteRadios = self.getFavouriteRadios()
+            }
+        }
     }
     
     func radios(inRegion region: String) -> [Radio]? {
@@ -56,17 +65,19 @@ class RadioViewModel: ObservableObject {
         return false
     }
     
-    func radioGroupNames() -> [String] {
+    func radioGroupNames(includeRecentPlayRadios: Bool = true) -> [String] {
         var groupNames = regions
         let favouriteRadios = getFavouriteRadios()
         if favouriteRadios.count > 0 {
             groupNames.insert(favouritGroupName, at: 0)
             regionRadios[favouritGroupName] = favouriteRadios
         }
-        if recentPlayRadios.count > 0 {
+        #if !os(macOS)
+        if recentPlayRadios.count > 0 && includeRecentPlayRadios {
             groupNames.insert(recentPlayGroupName, at: 0)
             regionRadios[recentPlayGroupName] = recentPlayRadios
         }
+        #endif
         return groupNames
     }
     

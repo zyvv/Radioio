@@ -34,6 +34,7 @@ struct PlayingView: View {
                                     .font(.system(size: 80))
                                     .foregroundColor(.white)
                             }
+                            .buttonStyle(PlainButtonStyle())
                             Spacer()
                         }
                         .frame(minHeight: geometry.size.height * 0.618)
@@ -41,14 +42,14 @@ struct PlayingView: View {
                 }
             }
         }
-        .statusBar(hidden: true)
+//        .statusBar(hidden: true)
         .onReceive(playerControl.$playerStatus) {
             isPlaying = $0 != .pause
         }
     }
 }
 
-struct PlayingPanel: View {
+private struct PlayingPanel: View {
     @EnvironmentObject var playerControl: PlayerControl
     @State var favourite = false
     
@@ -102,6 +103,7 @@ struct PlayingPanel: View {
                             )
                             
                     }
+                    .buttonStyle(PlainButtonStyle())
                     .padding()
                 }
                 
@@ -113,12 +115,11 @@ struct PlayingPanel: View {
     
 }
 
-struct RecentPlayView: View {
+private struct RecentPlayView: View {
     @State var showRadioListView = false
     @State var recentPlayRadios = [Radio]()
     @EnvironmentObject var playerControl: PlayerControl
     @EnvironmentObject var radioViewModel: RadioViewModel
-    
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -131,7 +132,8 @@ struct RecentPlayView: View {
                     allRadiosCell
                         .onTapGesture {
                             self.showRadioListView.toggle()
-                        }.sheet(isPresented: $showRadioListView) {
+                        }
+                        .sheet(isPresented: $showRadioListView) {
                             RadioListView(closeSelf: $showRadioListView, radioViewModel: radioViewModel)
                                 .environmentObject(playerControl)
                         }
@@ -163,7 +165,7 @@ struct RecentPlayView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct PlayingView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             PlayingView()

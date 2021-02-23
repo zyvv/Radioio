@@ -11,6 +11,12 @@ struct UpdatingRemoteRadioView: View {
     @State var retry = false
     @ObservedObject var updater: RemoteRadioUpdater
     
+    #if os(watchOS)
+    var vSpacing: CGFloat = 10
+    #else
+    var vSpacing: CGFloat = 30
+    #endif
+    
     var body: some View {
         ZStack {
             LinearGradient(
@@ -19,9 +25,12 @@ struct UpdatingRemoteRadioView: View {
                 endPoint: .init(x: 0.5, y: 0.5))
                 .allowsHitTesting(false)
                 .edgesIgnoringSafeArea(.all)
-            VStack(spacing: 30) {
-                Text("\(updater.updateError?.localizedDescription ?? (updater.needUpdate ? "Downloading data..." : ""))")
-                    .multilineTextAlignment(.center)
+            VStack(spacing: vSpacing) {
+                if ((updater.updateError?.localizedDescription) != nil) {
+                    Text(updater.updateError!.localizedDescription)
+                } else {
+                    updater.needUpdate ? Text("Downloading data...").multilineTextAlignment(.center) : Text("").multilineTextAlignment(.center)
+                }
                 Button(action: {
                     updater.update()
                 }, label: {
@@ -35,6 +44,7 @@ struct UpdatingRemoteRadioView: View {
                                 .strokeBorder(Color.white, lineWidth: 1.0)
                         )
                 })
+                .buttonStyle(PlainButtonStyle())
                 .padding()
                 .opacity(retry ? 1 : 0)
                 .disabled(retry ? false : true)

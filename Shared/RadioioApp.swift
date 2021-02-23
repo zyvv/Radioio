@@ -14,6 +14,8 @@ struct RadioioApp: App {
     
     private var remoteRadioUpdater = RemoteRadioUpdater()
     
+    private var radioViewModel = RadioViewModel()
+    
     @State var showMainView = false
     
     var body: some Scene {
@@ -24,14 +26,39 @@ struct RadioioApp: App {
                         showMainView = !needUpdate
                     }
             } else {
+                #if os(iOS)
                 PlayingView()
                     .edgesIgnoringSafeArea(.all)
-                    .environmentObject(PlayerControl())
-                    .environmentObject(RadioViewModel())
+                    .environmentObject(PlayerControl.shared)
+                    .environmentObject(radioViewModel)
                     .environment(\.managedObjectContext, PersistentContainer.context)
+                #elseif os(macOS)
+                MainView()
+                    .environmentObject(PlayerControl.shared)
+                    .environmentObject(radioViewModel)
+                    .environment(\.managedObjectContext, PersistentContainer.context)
+                    .frame(minWidth: 670, minHeight: 400)
+                #elseif os(watchOS)
+                TabView {
+                    WatchMainView()
+                        .environmentObject(PlayerControl.shared)
+                        .environmentObject(radioViewModel)
+                        .environment(\.managedObjectContext, PersistentContainer.context)
+                    NavigationView {
+                        RadioTableView()
+                            .navigationTitle(Text("Library"))
+                            .environmentObject(PlayerControl.shared)
+                            .environmentObject(radioViewModel)
+                            .environment(\.managedObjectContext, PersistentContainer.context)
+                    }
+                }
+                .tabViewStyle(PageTabViewStyle())
+                #endif
+                
             }
-            
         }
+        
+
 //        .onChange(of: scenePhase) { newScenePhase in
 //            if newScenePhase == .background {
 //            }

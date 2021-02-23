@@ -15,11 +15,11 @@ struct UnreachableBadgeView: View {
                 HStack {
                     Spacer()
                     Text("Not connected to the network.")
-                        .font(.caption2)
+                        .font(.caption)
                         .foregroundColor(.gray)
                     Spacer()
                 }
-                .frame(maxHeight: 20)
+                .frame(minHeight: 20)
                 .background(Color.lightBrown)
             }
         }

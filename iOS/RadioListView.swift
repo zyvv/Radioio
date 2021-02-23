@@ -11,32 +11,42 @@ struct RadioListView: View {
     @Binding var closeSelf: Bool
     @ObservedObject var radioViewModel: RadioViewModel
     @EnvironmentObject var playerControl: PlayerControl
+    
+    var contentView: some View {
+        GeometryReader { geometry in
+            VStack(spacing: 0) {
+                PlayingMessageNavigationBar(closeSelf: $closeSelf)
+                    .background(Color.darkBrown)
+                    .frame(width: geometry.size.width, height: 64)
+                ZStack {
+                    Color.background
+                        .allowsHitTesting(false)
+                        .edgesIgnoringSafeArea(.all)
+                    ScrollView(.vertical, showsIndicators: false) {
+                        Spacer(minLength: 8)
+                        ForEach(radioViewModel.radioGroupNames(), id: \.self) { region in
+                            let columns = [GridItem(.flexible(minimum: 100, maximum: 200)),
+                                           GridItem(.flexible(minimum: 100, maximum: 200))]
+                            RadioGroupView(radioViewModel: radioViewModel, region: region, columns: columns)
+                        }
+                        Spacer(minLength: 15)
+                    }
+                    .padding(.horizontal, 8)
+                }
+                .unreachable(Binding.constant(playerControl.unreachable))
+                
+            }
+        }
+    }
         
     var body: some View {
         NavigationView {
-            GeometryReader { geometry in
-                VStack(spacing: 0) {
-                    PlayingMessageNavigationBar(closeSelf: $closeSelf)
-                        .background(Color.darkBrown)
-                        .frame(width: geometry.size.width, height: 64)
-                    ZStack {
-                        Color.background
-                            .allowsHitTesting(false)
-                            .edgesIgnoringSafeArea(.all)
-                        ScrollView(.vertical, showsIndicators: false) {
-                            Spacer(minLength: 8)
-                            ForEach(radioViewModel.radioGroupNames(), id: \.self) { region in
-                                RadioGroup(radioViewModel: radioViewModel, region: region)
-                            }
-                            Spacer(minLength: 15)
-                        }
-                        .padding(.horizontal, 8)
-                    }
-                    .unreachable(Binding.constant(playerControl.unreachable))
-                    
-                }
+            Group {
+                #if os(iOS)
+                contentView
+                    .navigationBarHidden(true)
+                #endif
             }
-            .navigationBarHidden(true)
             .onAppear {
                 radioViewModel.shouldFetchRecentPlayRadio.send(true)
             }
@@ -63,6 +73,7 @@ struct PlayingMessageNavigationBar: View {
                             .foregroundColor(.white)
                             .font(.body)
                     })
+                    .buttonStyle(PlainButtonStyle())
                     Spacer()
                 }
                 .padding()
@@ -99,13 +110,10 @@ struct PlayingMessageNavigationBar: View {
     }
 }
 
-struct RadioGroup: View {
+private struct RadioGroupView: View {
     @ObservedObject var radioViewModel: RadioViewModel
-    let columns = [
-            GridItem(.flexible(minimum: 100, maximum: 200)),
-            GridItem(.flexible(minimum: 100, maximum: 200))
-        ]
     var region: String
+    var columns: [GridItem]
     
     var body: some View {
         DisclosureGroup(LocalizedStringKey(region)) {
@@ -124,6 +132,7 @@ struct RadioGroup: View {
         .padding(.vertical, 8)
     }
 }
+
 
 struct RadioListView_Previews: PreviewProvider {
     static var previews: some View {
