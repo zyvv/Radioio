@@ -24,15 +24,18 @@ struct WatchMainView: View {
             VStack {
                 Spacer()
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(playerControl.playingRadio.name)
-                        .font(.title3)
-                        .bold()
-                        .multilineTextAlignment(.center)
-                    HStack {
-                        if playerControl.playingRadio.desc != nil {
-                            Text(playerControl.playingRadio.desc!)
-                                .font(.caption)
-                        }
+                    HStack(alignment: .firstTextBaseline) {
+                        PlayingStatusView(playingStatus: Binding.constant(playerControl.playerStatus))
+                            .frame(width: 12, height: 12)
+                        Text(playerControl.playingRadio.name)
+                            .font(.title3)
+                            .bold()
+                            .multilineTextAlignment(.center)
+                    }
+                    if playerControl.playingRadio.desc != nil {
+                        Text(playerControl.playingRadio.desc!)
+                            .font(.caption)
+                            .padding(.leading, 16)
                     }
                 }
                 Spacer()
@@ -63,6 +66,9 @@ struct WatchMainView: View {
         }
         .onReceive(playerControl.$playingRadio) {
             favourite = $0.favourite
+        }
+        .onReceive(playerControl.$playerStatus) {
+            isPlaying = $0 != .pause
         }
         .onDisappear {
             radioViewModel.shouldFetchRecentPlayRadio.send(true)

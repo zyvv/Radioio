@@ -42,7 +42,7 @@ struct PlayingView: View {
                 }
             }
         }
-//        .statusBar(hidden: true)
+        .statusBar(hidden: true)
         .onReceive(playerControl.$playerStatus) {
             isPlaying = $0 != .pause
         }

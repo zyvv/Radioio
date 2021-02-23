@@ -10,6 +10,11 @@ import Combine
 import CoreData
 
 class RadioViewModel: ObservableObject {
+    
+    #if os(watchOS)
+    static let `shared`: RadioViewModel = RadioViewModel()
+    #endif
+    
     private let context: NSManagedObjectContext = PersistentContainer.context
     private let favouritGroupName = "Recently Added"
     private let recentPlayGroupName = "Recently Played"

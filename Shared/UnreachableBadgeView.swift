@@ -38,6 +38,6 @@ struct Unreachable: ViewModifier {
 
 extension View {
     func unreachable(_ unreachable: Binding<Bool>) -> some View {
-        return self.modifier(Unreachable(unreachable: unreachable))
+        return modifier(Unreachable(unreachable: unreachable))
     }
 }

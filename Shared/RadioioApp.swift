@@ -13,9 +13,7 @@ struct RadioioApp: App {
     @Environment(\.scenePhase) private var scenePhase
     
     private var remoteRadioUpdater = RemoteRadioUpdater()
-    
-    private var radioViewModel = RadioViewModel()
-    
+        
     @State var showMainView = false
     
     var body: some Scene {
@@ -30,25 +28,25 @@ struct RadioioApp: App {
                 PlayingView()
                     .edgesIgnoringSafeArea(.all)
                     .environmentObject(PlayerControl.shared)
-                    .environmentObject(radioViewModel)
+                    .environmentObject(RadioViewModel())
                     .environment(\.managedObjectContext, PersistentContainer.context)
                 #elseif os(macOS)
                 MainView()
                     .environmentObject(PlayerControl.shared)
-                    .environmentObject(radioViewModel)
+                    .environmentObject(RadioViewModel())
                     .environment(\.managedObjectContext, PersistentContainer.context)
                     .frame(minWidth: 670, minHeight: 400)
                 #elseif os(watchOS)
                 TabView {
                     WatchMainView()
                         .environmentObject(PlayerControl.shared)
-                        .environmentObject(radioViewModel)
+                        .environmentObject(RadioViewModel.shared)
                         .environment(\.managedObjectContext, PersistentContainer.context)
                     NavigationView {
                         RadioTableView()
                             .navigationTitle(Text("Library"))
                             .environmentObject(PlayerControl.shared)
-                            .environmentObject(radioViewModel)
+                            .environmentObject(RadioViewModel.shared)
                             .environment(\.managedObjectContext, PersistentContainer.context)
                     }
                 }

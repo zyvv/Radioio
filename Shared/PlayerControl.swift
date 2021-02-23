@@ -49,15 +49,14 @@ class PlayerControl: ObservableObject {
     }
     
     private func setupPlayerControls() {
+        #if !os(macOS)
         let session = AVAudioSession.sharedInstance()
         do {
-            #if !os(macOS)
             try session.setCategory(.playback, mode: .default, policy: .longFormAudio, options: [])
-            #endif
         } catch {
             print(error)
         }
-    
+        #endif
         #if os(watchOS)
         session.activate(options: []) {[weak self] (success, error) in
             guard let self = self else { return }
