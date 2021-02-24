@@ -120,11 +120,11 @@ class PlayerControl: ObservableObject {
                 .removeDuplicates { $0.0 == $1.0 && $0.1 == $1.1 }
                 .receive(on: DispatchQueue.main)
                 .sink { [unowned self] playerStatus, radio in
-                    self.playerStatus = PlayerStatus(rawValue: playerStatus.rawValue)!
-                    self.updateNowPlaying(isPause: self.playerStatus == .pause)
                     if playerStatus == .playing {
                         self.updateRadioLastPlayTime(radio: radio)
                     }
+                    self.updateNowPlaying(isPause: self.playerStatus == .pause)
+                    self.playerStatus = PlayerStatus(rawValue: playerStatus.rawValue)!
                 }
         }
     }

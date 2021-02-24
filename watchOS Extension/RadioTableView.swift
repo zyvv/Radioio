@@ -7,15 +7,47 @@
 
 import SwiftUI
 
-struct RadioTableView: View {
+struct WatchMyRadioView: View {
+    @EnvironmentObject var radioViewModel: RadioViewModel
+    @EnvironmentObject var playerControl: PlayerControl
+    
+    @State var showPlaceholder: Bool = true
+    
+    var body: some View {
+        Group {
+            if radioViewModel.showMyRadiosPlacehodler {
+                Text("No Record.")
+                    .font(.body)
+                    .foregroundColor(.white)
+            } else {
+                ScrollView(.vertical, showsIndicators: true) {
+                    ForEach(radioViewModel.radioGroupNames(includeRegions: false), id: \.self) { region in
+                        let columns = [GridItem()]
+                        RadioGroupView(radioViewModel: radioViewModel, region: region, columns: columns)
+                    }
+                }
+            }
+        }
+        .onReceive(radioViewModel.$showMyRadiosPlacehodler) {
+            showPlaceholder = $0
+        }
+    }
+}
+
+struct WatchRadioLibraryView: View {
     @EnvironmentObject var radioViewModel: RadioViewModel
     @EnvironmentObject var playerControl: PlayerControl
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: true) {
-            ForEach(radioViewModel.radioGroupNames(), id: \.self) { region in
+            ForEach(radioViewModel.radioGroupNames(includeFavouriteRadios: false, includeRecentPlayRadios: false), id: \.self) { region in
                 let columns = [GridItem()]
                 RadioGroupView(radioViewModel: radioViewModel, region: region, columns: columns)
+            }
+        }
+        .onReceive(playerControl.$playerStatus) {
+            if $0 == .playing {
+                radioViewModel.shouldFetchRecentPlayRadio.send(true)
             }
         }
     }
@@ -55,6 +87,6 @@ private struct RadioGroupView: View {
 
 struct RadioTableView_Previews: PreviewProvider {
     static var previews: some View {
-        RadioTableView()
+        WatchRadioLibraryView()
     }
 }

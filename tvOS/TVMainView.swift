@@ -72,7 +72,6 @@ private struct PlayingView: View {
             HStack {
                 Button {
                     playerControl.toggle()
-//                    radioViewModel.shouldFetchRecentPlayRadio.send(true)
                 } label: {
                   Image(systemName: isPlaying ? "pause.circle" : "play.circle")
                     .font(.system(size: 60))
@@ -100,7 +99,7 @@ private struct PlayingView: View {
         .onAppear {
             if radio != nil {
                 playerControl.play(radio: radio!)
-                radioViewModel.shouldFetchRecentPlayRadio.send(true)
+//                radioViewModel.shouldFetchRecentPlayRadio.send(true)
             }
         }
         .onReceive(playerControl.$playingRadio) {
@@ -108,7 +107,9 @@ private struct PlayingView: View {
         }
         .onReceive(playerControl.$playerStatus) {
             isPlaying = $0 != .pause
-            radioViewModel.shouldFetchRecentPlayRadio.send(true)
+            if $0 == .playing {
+                radioViewModel.shouldFetchRecentPlayRadio.send(true)
+            }
         }
     }
 }

@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		970D752425E4B784007B5153 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 970D752325E4B784007B5153 /* Assets.xcassets */; };
 		970D752B25E4B785007B5153 /* watchOS Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 970D752A25E4B785007B5153 /* watchOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		970D753425E4B785007B5153 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970D753325E4B785007B5153 /* ComplicationController.swift */; };
-		970D753625E4B786007B5153 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 970D753525E4B786007B5153 /* Assets.xcassets */; };
 		970D753925E4B786007B5153 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 970D753825E4B786007B5153 /* Preview Assets.xcassets */; };
 		970D753D25E4B786007B5153 /* watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 970D752125E4B782007B5153 /* watchOS.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		970D754E25E4B9F6007B5153 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97FE649025E3D2E800434012 /* Media.xcassets */; };
@@ -145,8 +143,6 @@
 		970D752325E4B784007B5153 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		970D752525E4B784007B5153 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		970D752A25E4B785007B5153 /* watchOS Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "watchOS Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		970D753325E4B785007B5153 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
-		970D753525E4B786007B5153 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		970D753825E4B786007B5153 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		970D753A25E4B786007B5153 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		970D755725E4BB14007B5153 /* RadioTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioTableView.swift; sourceTree = "<group>"; };
@@ -236,8 +232,6 @@
 			children = (
 				970D755825E4BB15007B5153 /* WatchMainView.swift */,
 				970D755725E4BB14007B5153 /* RadioTableView.swift */,
-				970D753325E4B785007B5153 /* ComplicationController.swift */,
-				970D753525E4B786007B5153 /* Assets.xcassets */,
 				970D753A25E4B786007B5153 /* Info.plist */,
 			);
 			path = "watchOS Extension";
@@ -510,7 +504,6 @@
 			files = (
 				970D754E25E4B9F6007B5153 /* Media.xcassets in Resources */,
 				970D753925E4B786007B5153 /* Preview Assets.xcassets in Resources */,
-				970D753625E4B786007B5153 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,7 +556,6 @@
 				970D756925E4BB29007B5153 /* Radioio.xcdatamodeld in Sources */,
 				970D756A25E4BB29007B5153 /* OnoffButton.swift in Sources */,
 				970D756B25E4BB29007B5153 /* Localizable.strings in Sources */,
-				970D753425E4B785007B5153 /* ComplicationController.swift in Sources */,
 				970D755925E4BB15007B5153 /* RadioTableView.swift in Sources */,
 				970D755A25E4BB15007B5153 /* WatchMainView.swift in Sources */,
 			);
@@ -669,9 +661,9 @@
 		970D753F25E4B786007B5153 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"Shared/Preview Content\"";
 				DEVELOPMENT_TEAM = VN2D9WHJ93;
 				ENABLE_PREVIEWS = YES;
@@ -694,9 +686,9 @@
 		970D754025E4B786007B5153 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"Shared/Preview Content\"";
 				DEVELOPMENT_TEAM = VN2D9WHJ93;
 				ENABLE_PREVIEWS = YES;
@@ -724,7 +716,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = VN2D9WHJ93;
 				IBSC_MODULE = watchOS_Extension;
 				INFOPLIST_FILE = watchOS/Info.plist;
@@ -745,7 +737,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = VN2D9WHJ93;
 				IBSC_MODULE = watchOS_Extension;
 				INFOPLIST_FILE = watchOS/Info.plist;
@@ -767,7 +759,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"tvOS/Preview Content\"";
 				DEVELOPMENT_TEAM = VN2D9WHJ93;
 				ENABLE_PREVIEWS = YES;
@@ -793,7 +785,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"tvOS/Preview Content\"";
 				DEVELOPMENT_TEAM = VN2D9WHJ93;
 				ENABLE_PREVIEWS = YES;
@@ -933,7 +925,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = VN2D9WHJ93;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -957,7 +949,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = VN2D9WHJ93;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;

@@ -37,21 +37,22 @@ struct RadioioApp: App {
                     .environment(\.managedObjectContext, PersistentContainer.context)
                     .frame(minWidth: 670, minHeight: 400)
                 #elseif os(watchOS)
-                Text("xxx")
-//                TabView {
-//                    WatchMainView()
-//                        .environmentObject(PlayerControl.shared)
-//                        .environmentObject(RadioViewModel.shared)
-//                        .environment(\.managedObjectContext, PersistentContainer.context)
-//                    NavigationView {
-//                        RadioTableView()
-//                            .navigationTitle(Text("Library"))
-//                            .environmentObject(PlayerControl.shared)
-//                            .environmentObject(RadioViewModel.shared)
-//                            .environment(\.managedObjectContext, PersistentContainer.context)
-//                    }
-//                }
-//                .tabViewStyle(PageTabViewStyle())
+                NavigationView {
+                    TabView {
+                        Group {
+                            WatchMainView()
+                                .navigationTitle(Text("Playing"))
+                            WatchMyRadioView()
+                                .navigationTitle(Text("Recently"))
+                            WatchRadioLibraryView()
+                                .navigationTitle(Text("Library"))
+                        }
+                        .environmentObject(PlayerControl.shared)
+                        .environmentObject(RadioViewModel.shared)
+                        .environment(\.managedObjectContext, PersistentContainer.context)
+                    }
+                }
+                .tabViewStyle(PageTabViewStyle())
                 #elseif os(tvOS)
                 TVMainView()
                     .environmentObject(PlayerControl.shared)

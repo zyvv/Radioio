@@ -13,6 +13,7 @@ class RadioViewModel: ObservableObject {
     
     #if os(watchOS) || os(tvOS)
     static let `shared`: RadioViewModel = RadioViewModel()
+    @Published var showMyRadiosPlacehodler: Bool = false
     #endif
     
     private let context: NSManagedObjectContext = PersistentContainer.context
@@ -26,10 +27,6 @@ class RadioViewModel: ObservableObject {
     @Published var favouriteRadios: [Radio] = []
     
     @Published var recentPlayRadios: [Radio] = []
-    
-    #if os(tvOS)
-    @Published var showMyRadiosPlacehodler: Bool = false
-    #endif
     
     let shouldFetchRecentPlayRadio = CurrentValueSubject<Bool, Never>(false)
     private var shouldFetchRecentPlayRadioCancellable: AnyCancellable?
@@ -52,12 +49,8 @@ class RadioViewModel: ObservableObject {
         shouldFetchRecentPlayRadio.send(true)
         shouldFetchRecentPlayRadioCancellable = shouldFetchRecentPlayRadio.sink { [unowned self] in
             if $0 == true {
-                if let recentPlayRadio = self.recentPlayRadios.first,
-                   recentPlayRadio == RadioViewModel.getRecentPlayRadio() {
-                    return
-                }
                 self.recentPlayRadios = self.getRecentPlayRadios()
-                #if os(tvOS)
+                #if os(tvOS) || os(watchOS)
                 self.showMyRadiosPlacehodler = self.recentPlayRadios.count == 0 && self.favouriteRadios.count == 0
                 #endif
             }
@@ -66,7 +59,7 @@ class RadioViewModel: ObservableObject {
         shouldFetchFavouriteRadioCancellable = shouldFetchFavouriteRadio.sink { [unowned self] in
             if $0 == true {
                 self.favouriteRadios = self.getFavouriteRadios()
-                #if os(tvOS)
+                #if os(tvOS) || os(watchOS)
                 self.showMyRadiosPlacehodler = self.recentPlayRadios.count == 0 && self.favouriteRadios.count == 0
                 #endif
             }
