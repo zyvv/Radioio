@@ -27,7 +27,7 @@ struct RadioioApp: App {
                 #if os(iOS)
                 PlayingView()
                     .edgesIgnoringSafeArea(.all)
-                    .environmentObject(PlayerControl.shared)
+                    .environmentObject(PlayerControl())
                     .environmentObject(RadioViewModel())
                     .environment(\.managedObjectContext, PersistentContainer.context)
                 #elseif os(macOS)
@@ -37,20 +37,26 @@ struct RadioioApp: App {
                     .environment(\.managedObjectContext, PersistentContainer.context)
                     .frame(minWidth: 670, minHeight: 400)
                 #elseif os(watchOS)
-                TabView {
-                    WatchMainView()
-                        .environmentObject(PlayerControl.shared)
-                        .environmentObject(RadioViewModel.shared)
-                        .environment(\.managedObjectContext, PersistentContainer.context)
-                    NavigationView {
-                        RadioTableView()
-                            .navigationTitle(Text("Library"))
-                            .environmentObject(PlayerControl.shared)
-                            .environmentObject(RadioViewModel.shared)
-                            .environment(\.managedObjectContext, PersistentContainer.context)
-                    }
-                }
-                .tabViewStyle(PageTabViewStyle())
+                Text("xxx")
+//                TabView {
+//                    WatchMainView()
+//                        .environmentObject(PlayerControl.shared)
+//                        .environmentObject(RadioViewModel.shared)
+//                        .environment(\.managedObjectContext, PersistentContainer.context)
+//                    NavigationView {
+//                        RadioTableView()
+//                            .navigationTitle(Text("Library"))
+//                            .environmentObject(PlayerControl.shared)
+//                            .environmentObject(RadioViewModel.shared)
+//                            .environment(\.managedObjectContext, PersistentContainer.context)
+//                    }
+//                }
+//                .tabViewStyle(PageTabViewStyle())
+                #elseif os(tvOS)
+                TVMainView()
+                    .environmentObject(PlayerControl.shared)
+                    .environmentObject(RadioViewModel.shared)
+                    .environment(\.managedObjectContext, PersistentContainer.context)
                 #endif
                 
             }

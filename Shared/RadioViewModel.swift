@@ -11,7 +11,7 @@ import CoreData
 
 class RadioViewModel: ObservableObject {
     
-    #if os(watchOS)
+    #if os(watchOS) || os(tvOS)
     static let `shared`: RadioViewModel = RadioViewModel()
     #endif
     
@@ -22,11 +22,15 @@ class RadioViewModel: ObservableObject {
     private var radios: [Radio]
     private var regions: [String]
     private var regionRadios: [String: [Radio]]
-    
+
     @Published var favouriteRadios: [Radio] = []
     
     @Published var recentPlayRadios: [Radio] = []
-        
+    
+    #if os(tvOS)
+    @Published var showMyRadiosPlacehodler: Bool = false
+    #endif
+    
     let shouldFetchRecentPlayRadio = CurrentValueSubject<Bool, Never>(false)
     private var shouldFetchRecentPlayRadioCancellable: AnyCancellable?
     
@@ -48,13 +52,23 @@ class RadioViewModel: ObservableObject {
         shouldFetchRecentPlayRadio.send(true)
         shouldFetchRecentPlayRadioCancellable = shouldFetchRecentPlayRadio.sink { [unowned self] in
             if $0 == true {
+                if let recentPlayRadio = self.recentPlayRadios.first,
+                   recentPlayRadio == RadioViewModel.getRecentPlayRadio() {
+                    return
+                }
                 self.recentPlayRadios = self.getRecentPlayRadios()
+                #if os(tvOS)
+                self.showMyRadiosPlacehodler = self.recentPlayRadios.count == 0 && self.favouriteRadios.count == 0
+                #endif
             }
         }
         shouldFetchFavouriteRadio.send(true)
         shouldFetchFavouriteRadioCancellable = shouldFetchFavouriteRadio.sink { [unowned self] in
             if $0 == true {
                 self.favouriteRadios = self.getFavouriteRadios()
+                #if os(tvOS)
+                self.showMyRadiosPlacehodler = self.recentPlayRadios.count == 0 && self.favouriteRadios.count == 0
+                #endif
             }
         }
     }
@@ -70,19 +84,27 @@ class RadioViewModel: ObservableObject {
         return false
     }
     
-    func radioGroupNames(includeRecentPlayRadios: Bool = true) -> [String] {
-        var groupNames = regions
+    func radioGroupNames(includeFavouriteRadios: Bool = true, includeRecentPlayRadios: Bool = true, includeRegions: Bool = true) -> [String] {
+        var groupNames: [String] = []
+        if includeRegions {
+            groupNames.append(contentsOf: regions)
+        }
+        
         let favouriteRadios = getFavouriteRadios()
         if favouriteRadios.count > 0 {
-            groupNames.insert(favouritGroupName, at: 0)
             regionRadios[favouritGroupName] = favouriteRadios
+            if includeFavouriteRadios {
+                groupNames.insert(favouritGroupName, at: 0)
+            }
         }
-        #if !os(macOS)
-        if recentPlayRadios.count > 0 && includeRecentPlayRadios {
-            groupNames.insert(recentPlayGroupName, at: 0)
+        
+        let recentPlayRadios = getRecentPlayRadios()
+        if recentPlayRadios.count > 0 {
             regionRadios[recentPlayGroupName] = recentPlayRadios
+            if includeRecentPlayRadios {
+                groupNames.insert(recentPlayGroupName, at: 0)
+            }
         }
-        #endif
         return groupNames
     }
     

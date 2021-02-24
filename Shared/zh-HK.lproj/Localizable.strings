@@ -9,9 +9,12 @@
 "Close" = "關閉";
 "Retry" = "重試";
 "Library" = "電台庫";
+"Recently" = "最近";
 "Recently Played" = "最近播放";
 "Recently Added" = "我關注的";
 "Add" = "關注";
 "Added" = "已關注";
 "Not connected to the network." = "未連接到網路。";
 "Downloading data..." = "正在下載數據...";
+"No Record." = "無記錄。";
+"Playing" = "正在播放";

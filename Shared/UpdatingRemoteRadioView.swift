@@ -34,6 +34,13 @@ struct UpdatingRemoteRadioView: View {
                 Button(action: {
                     updater.update()
                 }, label: {
+                    #if os(tvOS)
+                    Text("Retry")
+                        .font(.body)
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 15)
+                        .padding(.vertical, 6)
+                    #else
                     Text("Retry")
                         .font(.body)
                         .foregroundColor(.white)
@@ -43,6 +50,8 @@ struct UpdatingRemoteRadioView: View {
                             RoundedRectangle(cornerRadius: .infinity)
                                 .strokeBorder(Color.white, lineWidth: 1.0)
                         )
+
+                    #endif
                 })
                 .buttonStyle(PlainButtonStyle())
                 .padding()

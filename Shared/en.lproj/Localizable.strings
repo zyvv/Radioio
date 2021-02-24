@@ -9,10 +9,12 @@
 "Close" = "Close";
 "Retry" = "Retry";
 "Library" = "Library";
+"Recently" = "Recently";
 "Recently Played" = "Recently Played";
 "Recently Added" = "Recently Added";
 "Add" = "Add";
 "Added" = "Added";
 "Not connected to the network." = "Not connected to the network.";
 "Downloading data..." = "Downloading data...";
-
+"No Record." = "No Record.";
+"Playing" = "Playing";

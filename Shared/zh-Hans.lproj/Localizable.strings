@@ -9,9 +9,12 @@
 "Close" = "关闭";
 "Retry" = "重试";
 "Library" = "电台库";
+"Recently" = "最近";
 "Recently Played" = "最近播放";
 "Recently Added" = "我关注的";
 "Add" = "关注";
 "Added" = "已关注";
 "Not connected to the network." = "没有连接到网络。";
 "Downloading data..." = "正在下载数据...";
+"No Record." = "没有记录。";
+"Playing" = "正在播放";

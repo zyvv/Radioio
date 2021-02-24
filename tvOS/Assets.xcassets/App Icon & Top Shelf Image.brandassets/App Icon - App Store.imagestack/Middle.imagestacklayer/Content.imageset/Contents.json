@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "appletv_mid_big.png",
+      "idiom" : "tv"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
